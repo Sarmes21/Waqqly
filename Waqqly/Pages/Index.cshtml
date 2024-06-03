@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Local Dog Walkers";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Local Dog Walkers</h1>
+</div>
+
+<main class="container mt-5">
+    <div class="walker mb-4 p-3 border rounded">
+        <h2>Jane Doe</h2>
+        <p>Contact: jane@example.com</p>
+        <p>Phone: 555-555-5555</p>
+        <p>Location: 123 Main St</p>
+    </div>
+    <div class="walker mb-4 p-3 border rounded">
+        <h2>John Smith</h2>
+        <p>Contact: john@example.com</p>
+        <p>Phone: 555-555-5555</p>
+        <p>Location: 456 Elm St</p>
+    </div>
+    <!-- Add more walker entries as needed -->
+</main>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .walker h2 {
+        margin-top: 0;
+    }
+</style>

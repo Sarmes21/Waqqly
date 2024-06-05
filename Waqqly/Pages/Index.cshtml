@@ -1,27 +1,43 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Local Dog Walkers";
+    ViewData["Title"] = "Waqqly Walkers and Pets";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Local Dog Walkers</h1>
+    <h1 class="display-4">Local Dog Walkers and Pets</h1>
 </div>
 
 <main class="container mt-5">
-    <div class="walker mb-4 p-3 border rounded">
-        <h2>Jane Doe</h2>
-        <p>Contact: jane@example.com</p>
-        <p>Phone: 555-555-5555</p>
-        <p>Location: 123 Main St</p>
-    </div>
-    <div class="walker mb-4 p-3 border rounded">
-        <h2>John Smith</h2>
-        <p>Contact: john@example.com</p>
-        <p>Phone: 555-555-5555</p>
-        <p>Location: 456 Elm St</p>
-    </div>
-    <!-- Add more walker entries as needed -->
+    <h2>Dog Walkers</h2>
+    @foreach (var walker in Model.Walkers)
+    {
+        <div class="walker mb-4 p-3 border rounded">
+            <h3>@walker.Name</h3>
+            <p>Contact: @walker.Email</p>
+            <p>Phone: @walker.Phone</p>
+            <p>Location: @walker.Location</p>
+            <form method="post" asp-page-handler="RemoveWalker">
+                <input type="hidden" name="walkerId" value="@walker.Id" />
+                <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
+        </div>
+    }
+
+    <h2>Pets</h2>
+    @foreach (var pet in Model.Pets)
+    {
+        <div class="pet mb-4 p-3 border rounded">
+            <h3>@pet.Name</h3>
+            <p>Type: @pet.Type</p>
+            <p>Age: @pet.Age</p>
+            <p>Owner: @pet.Owner</p>
+            <form method="post" asp-page-handler="RemovePet">
+                <input type="hidden" name="petId" value="@pet.Id" />
+                <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
+        </div>
+    }
 </main>
 
 <style>
@@ -29,7 +45,11 @@
         font-family: Arial, sans-serif;
     }
 
-    .walker h2 {
+    .walker h3, .pet h3 {
         margin-top: 0;
+    }
+
+    .btn-danger {
+        margin-top: 10px;
     }
 </style>

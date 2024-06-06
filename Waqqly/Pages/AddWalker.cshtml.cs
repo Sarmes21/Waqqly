@@ -56,12 +56,12 @@ public class AddWalkerModel : PageModel
             return Page();
         }
 
-        var id = Guid.NewGuid().ToString(); // Generate one GUID for both id and Id
+        var id = Guid.NewGuid().ToString();
 
         var newWalker = new DogWalker
         {
             id = id,
-            Id = id, // Use the same GUID for partition key
+            Id = id,
             Name = Name,
             Email = Email,
             Phone = Phone,
@@ -94,7 +94,7 @@ public class DogWalker
 {
     [JsonProperty(PropertyName = "id")]
     public string id { get; set; }
-    public string Id { get; set; } // Partition key
+    public string Id { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
     public string Phone { get; set; }

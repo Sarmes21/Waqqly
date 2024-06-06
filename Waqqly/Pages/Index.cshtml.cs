@@ -85,7 +85,7 @@ namespace Waqqly.Pages
                         _logger.LogInformation($"Walker with ID {walkerId} removed successfully.");
                     }
 
-                    await FetchData(); // Refresh the list after removal
+                    await FetchData();
                 }
                 catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
@@ -118,7 +118,7 @@ namespace Waqqly.Pages
                         _logger.LogInformation($"Pet with ID {petId} removed successfully.");
                     }
 
-                    await FetchData(); // Refresh the list after removal
+                    await FetchData();
                 }
                 catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {

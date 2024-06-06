@@ -10,7 +10,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.40.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="8.0.0" />
-    <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
